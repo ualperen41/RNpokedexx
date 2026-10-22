@@ -1,97 +1,140 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📱 Pokédex
 
-# Getting Started
+**React Native** ve **TypeScript** ile yazılmış bir Pokédex mobil uygulaması. Pokémon'ları tür renkleri ve tür ikonlarıyla listeler, bölgeleri gösterir. Kullanıcılar kayıt olup giriş yapabilir ve kendi favori Pokémon listelerini oluşturabilir.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+![React Native](https://img.shields.io/badge/React_Native-0.86-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.x-764ABC?logo=redux&logoColor=white)
+![React Navigation](https://img.shields.io/badge/React_Navigation-7.x-6B52AE)
+![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📸 Ekran Görüntüleri
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+![](./pokdex.gif)
 
-```sh
-# Using npm
-npm start
+## ✨ Özellikler
 
-# OR using Yarn
-yarn start
+- **Onboarding:** Uygulama ilk açıldığında 3 adımlı tanıtım ekranları ("Atla" butonuyla geçilebilir)
+- **Pokémon listesi:** Pokémon'lar numara, isim, görsel ve tür bilgileriyle listelenir. Kartlar türe göre renklenir, SVG tür ikonları gösterilir
+- **Bölgeler:** Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos... bölgeleri nesil bilgisi ve başlangıç Pokémon'larıyla birlikte listelenir
+- **Kimlik doğrulama:** Kayıt ol, giriş yap ve şifremi unuttum ekranları (e-mail formatı ve şifre uzunluğu kontrolü yapılır)
+- **Favoriler:** Giriş yapan her kullanıcının kendine ait favori listesi vardır. Kalp ikonuna basarak Pokémon ekleyip çıkarabilirsin
+- **Profil:** Giriş yapan kullanıcının bilgileri gösterilir, çıkış yapılabilir
+- **Alt sekme menüsü:** Pokémonlar, Bölgeler, Favoriler ve Hesabım sekmeleri; her sekmenin aktif/pasif ikonu var
+
+## 🛠️ Kullanılan Teknolojiler
+
+| Alan | Teknoloji |
+| --- | --- |
+| Framework | React Native 0.86 (React 19) |
+| Dil | TypeScript |
+| State yönetimi | Redux Toolkit + React Redux |
+| Navigasyon | React Navigation (Native Stack + Bottom Tabs) |
+| İkonlar | iconsax-react-nativejs, react-native-svg |
+| Test / Kod kalitesi | Jest, ESLint, Prettier |
+
+## 📂 Proje Yapısı
+
+```
+pokedex/
+├── App.tsx                  # Redux Provider + NavigationContainer
+├── index.js                 # Uygulamanın giriş noktası
+├── android/                 # Android native projesi
+├── ios/                     # iOS native projesi
+└── src/
+    ├── assets/              # Pokémon görselleri ve sekme ikonları
+    ├── components/
+    │   ├── navigaton/       # Sekme menüsü ikonları
+    │   ├── pokedex/         # Pokémon kartı (PokedexItem)
+    │   ├── regions/         # Bölge kartı (RegionCard)
+    │   └── ui/              # Button, Input, Swipe gibi ortak bileşenler
+    ├── models/              # TypeScript tipleri (data + ui props)
+    ├── navigaiton/          # Root stack ve tab navigator
+    ├── redux/
+    │   ├── slices/          # authSlice, favoritesSlice
+    │   ├── hooks.ts         # Tipli useAppDispatch / useAppSelector
+    │   └── store.ts         # Redux store
+    ├── screens/
+    │   ├── auth/            # Giriş, Kayıt, Şifremi Unuttum
+    │   ├── onBoarding/      # Tanıtım ekranları
+    │   ├── pokedex/         # Pokémon listesi
+    │   ├── regions/         # Bölgeler
+    │   ├── favorites/       # Favoriler
+    │   └── profile/         # Hesabım
+    ├── store/               # Statik veriler (Pokémon listesi, bölgeler, tür ikonları, görsel eşleştirmeleri)
+    ├── styles/              # Ortak stiller
+    ├── theme/               # Renk paleti (Pokémon tür renkleri)
+    └── utils/               # Route isimleri
 ```
 
-## Step 2: Build and run your app
+## 🚀 Kurulum ve Çalıştırma
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Gereksinimler
 
-### Android
+- [Node.js](https://nodejs.org/) **>= 22.11.0**
+- React Native ortam kurulumu: [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment)
+- iOS için: Xcode, Ruby ve CocoaPods (sadece macOS)
+- Android için: Android Studio ve Android SDK
+
+### 1. Projeyi klonla
 
 ```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+git clone https://github.com/<kullanici-adin>/pokedex.git
+cd pokedex
 ```
 
-### iOS
+### 2. Bağımlılıkları yükle
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+```sh
+npm install
+```
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### 3. iOS bağımlılıklarını yükle (sadece iOS için)
 
 ```sh
 bundle install
+cd ios && bundle exec pod install && cd ..
 ```
 
-Then, and every time you update your native dependencies, run:
+### 4. Metro'yu başlat
 
 ```sh
-bundle exec pod install
+npm start
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### 5. Uygulamayı çalıştır
+
+Yeni bir terminal açıp:
 
 ```sh
-# Using npm
+# iOS
 npm run ios
 
-# OR using Yarn
-yarn ios
+# Android
+npm run android
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 📜 Script'ler
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+| Komut | Açıklama |
+| --- | --- |
+| `npm start` | Metro bundler'ı başlatır |
+| `npm run ios` | Uygulamayı iOS simülatöründe çalıştırır |
+| `npm run android` | Uygulamayı Android emülatöründe/cihazda çalıştırır |
+| `npm run lint` | ESLint ile kodu kontrol eder |
+| `npm test` | Jest testlerini çalıştırır |
 
-## Step 3: Modify your app
+## 📝 Notlar
 
-Now that you have successfully run the app, let's make changes!
+- Pokémon ve bölge verileri statiktir, `src/store/` altındaki dosyalardan gelir; herhangi bir API kullanılmaz.
+- Kullanıcı ve favori bilgileri sadece Redux store'da (bellekte) tutulur. Uygulama kapatılınca bu bilgiler silinir.
+- Pokémon tür ikonları [duiker101/pokemon-type-svg-icons](https://github.com/duiker101/pokemon-type-svg-icons) reposundan alınmıştır.
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
-## Congratulations! :tada:
+## ⚖️ Yasal Uyarı
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Bu proje eğitim amaçlı yapılmıştır. Pokémon ve Pokémon karakter isimleri Nintendo, Game Freak ve The Pokémon Company'nin ticari markalarıdır.

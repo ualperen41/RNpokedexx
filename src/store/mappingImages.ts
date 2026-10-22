@@ -1,0 +1,31 @@
+// src/assets/pokemonImages.ts
+import { ImageSourcePropType } from 'react-native';
+
+export const pokemonImages: Record<string, ImageSourcePropType> = {
+  '001': require('../assets/images/001.png'),
+  '002': require('../assets/images/002.png'),
+  '003': require('../assets/images/003.png'),
+  '004': require('../assets/images/004.png'),
+  '005': require('../assets/images/005.png'),
+  '006': require('../assets/images/006.png'),
+  '007': require('../assets/images/squirtle 1.png'),
+  '008': require('../assets/images/wartortle 1.png'),
+  '009': require('../assets/images/blastoise 1.png'),
+  '015': require('../assets/images/beedrill 2.png'),
+  '025': require('../assets/images/pikachu 2.png'),
+  '035': require('../assets/images/clefairy 2.png'),
+  '051': require('../assets/images/dugtrio 2.png'),
+  '095': require('../assets/images/onix 1.png'),
+  '108': require('../assets/images/lickitung 1.png'),
+  '109': require('../assets/images/koffing 2.png'),
+  '151': require('../assets/images/mew 2.png'),
+  '245': require('../assets/images/suicune 1.png'),
+  '306': require('../assets/images/aggron 2.png'),
+  '384': require('../assets/images/rayquaza 2.png'),
+  '448': require('../assets/images/lucario 1.png'),
+  '497': require('../assets/images/serperior 2.png'),
+  '571': require('../assets/images/zoroark 2.png'),
+  '609': require('../assets/images/chandelure 2.png'),
+  '613': require('../assets/images/cubchoo 2.png'),
+  '733': require('../assets/images/toucannon 2.png'),
+};

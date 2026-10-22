@@ -1,0 +1,40 @@
+export const regions = [
+  {
+    bolge: 'Kanto',
+    nesil: 1,
+    cimen: 'Bulbasaur',
+    ates: 'Charmander',
+    su: 'Squirtle',
+  },
+  {
+    bolge: 'Johto',
+    nesil: 2,
+    cimen: 'Chikorita',
+    ates: 'Cyndaquil',
+    su: 'Totodile',
+  },
+  { bolge: 'Hoenn', nesil: 3, cimen: 'Treecko', ates: 'Torchic', su: 'Mudkip' },
+  {
+    bolge: 'Sinnoh',
+    nesil: 4,
+    cimen: 'Turtwig',
+    ates: 'Chimchar',
+    su: 'Piplup',
+  },
+  { bolge: 'Unova', nesil: 5, cimen: 'Snivy', ates: 'Tepig', su: 'Oshawott' },
+  {
+    bolge: 'Kalos',
+    nesil: 6,
+    cimen: 'Chespin',
+    ates: 'Fennekin',
+    su: 'Froakie',
+  },
+  { bolge: 'Alola', nesil: 7, cimen: 'Rowlet', ates: 'Litten', su: 'Popplio' },
+  {
+    bolge: 'Galar',
+    nesil: 8,
+    cimen: 'Grookey',
+    ates: 'Scorbunny',
+    su: 'Sobble',
+  },
+];
